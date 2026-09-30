@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Đăng ký tài khoản cho hệ thống JWT">
+    <title>Đăng ký | HuuThang JWT</title>
+    <link rel="stylesheet" href="/css/app.css">
+</head>
+<body class="auth-page">
+<main class="auth-shell register-shell">
+    <section class="brand-panel" aria-label="Giới thiệu hệ thống">
+        <div class="brand-lockup">
+            <span class="brand-logo" aria-hidden="true">HT</span>
+            <span class="brand-name">HuuThang</span>
+        </div>
+
+        <div class="brand-copy">
+            <span class="eyebrow eyebrow-light">Bắt đầu ngay hôm nay</span>
+            <h1>Tạo tài khoản.<br>Bảo vệ bằng JWT.</h1>
+            <p>Thông tin đăng ký được gửi tới đúng endpoint <strong>/auth/signup</strong> trong bài giảng.</p>
+        </div>
+
+        <ul class="feature-list" aria-label="Quy trình tạo tài khoản">
+            <li><span class="step-number">1</span> Tạo tài khoản với họ tên và email</li>
+            <li><span class="step-number">2</span> Mật khẩu được mã hóa bằng BCrypt</li>
+            <li><span class="step-number">3</span> Đăng nhập để nhận JWT access token</li>
+        </ul>
+
+        <div class="brand-footer"><span class="status-dot"></span> Sẵn sàng tạo tài khoản mới</div>
+    </section>
+
+    <section class="auth-card auth-card-register" aria-labelledby="registerTitle">
+        <div class="mobile-brand">
+            <span class="brand-logo" aria-hidden="true">HT</span>
+            <span class="brand-name">HuuThang</span>
+        </div>
+
+        <div class="auth-heading register-heading">
+            <span class="eyebrow">Thành viên mới</span>
+            <h2 id="registerTitle">Tạo tài khoản</h2>
+            <p>Điền đầy đủ thông tin bên dưới để đăng ký.</p>
+        </div>
+
+        <form id="registerForm" class="auth-form auth-form-register" novalidate>
+            <div class="form-group">
+                <label for="fullName">Họ và tên</label>
+                <div class="input-shell">
+                    <span class="input-icon input-icon-text" aria-hidden="true">Aa</span>
+                    <input type="text" name="fullName" id="fullName" placeholder="Nguyễn Văn An"
+                           autocomplete="name" minlength="2" maxlength="50" required>
+                </div>
+                <small class="field-error" id="fullNameError"></small>
+            </div>
+
+            <div class="form-group">
+                <label for="registerEmail">Địa chỉ email</label>
+                <div class="input-shell">
+                    <span class="input-icon" aria-hidden="true">@</span>
+                    <input type="email" name="email" id="registerEmail" placeholder="tenban@example.com"
+                           autocomplete="email" maxlength="100" required>
+                </div>
+                <small class="field-error" id="registerEmailError"></small>
+            </div>
+
+            <div class="form-group">
+                <div class="label-row">
+                    <label for="registerPassword">Mật khẩu</label>
+                    <span class="field-hint">Tối thiểu 6 ký tự</span>
+                </div>
+                <div class="input-shell">
+                    <span class="input-icon input-icon-lock" aria-hidden="true"></span>
+                    <input type="password" name="password" id="registerPassword" placeholder="Tạo mật khẩu"
+                           autocomplete="new-password" minlength="6" required>
+                    <button class="password-toggle" type="button" data-password-toggle="registerPassword"
+                            aria-label="Hiện mật khẩu" aria-pressed="false">Hiện</button>
+                </div>
+                <small class="field-error" id="registerPasswordError"></small>
+            </div>
+
+            <div class="form-group">
+                <label for="confirmPassword">Xác nhận mật khẩu</label>
+                <div class="input-shell">
+                    <span class="input-icon input-icon-lock" aria-hidden="true"></span>
+                    <input type="password" id="confirmPassword" placeholder="Nhập lại mật khẩu"
+                           autocomplete="new-password" minlength="6" required>
+                    <button class="password-toggle" type="button" data-password-toggle="confirmPassword"
+                            aria-label="Hiện mật khẩu xác nhận" aria-pressed="false">Hiện</button>
+                </div>
+                <small class="field-error" id="confirmPasswordError"></small>
+            </div>
+
+            <div id="registerMessage" class="message" role="alert" hidden></div>
+
+            <button id="registerButton" class="primary-button" type="submit">
+                <span class="button-label">Tạo tài khoản</span>
+                <span class="button-spinner" aria-hidden="true"></span>
+                <span class="button-arrow" aria-hidden="true">→</span>
+            </button>
+        </form>
+
+        <p class="auth-switch">Đã có tài khoản? <a href="/login">Đăng nhập</a></p>
+    </section>
+</main>
+
+<script src="/js/mainjs.js"></script>
+</body>
+</html>
+

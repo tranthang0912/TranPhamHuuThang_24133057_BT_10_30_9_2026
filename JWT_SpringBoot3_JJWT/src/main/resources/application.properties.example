@@ -1,0 +1,16 @@
+# JWT Spring Boot 3 - JJWT
+spring.application.name=JWT_springboot3
+server.port=8005
+
+# MySQL
+spring.datasource.url=jdbc:mysql://localhost:3306/jwt_springboot3?serverTimezone=UTC&allowPublicKeyRetrieval=true&useSSL=false
+spring.datasource.username=${DB_USERNAME:root}
+spring.datasource.password=${DB_PASSWORD}
+
+# Hibernate
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.open-in-view=false
+
+# JWT - secret must be Base64 and at least 32 decoded bytes for HS256
+security.jwt.secret-key=${JWT_SECRET_KEY}
+security.jwt.expiration-time=3600000

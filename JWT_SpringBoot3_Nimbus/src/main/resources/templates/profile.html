@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Trang hồ sơ người dùng đã xác thực">
+    <title>Hồ sơ | HuuThang JWT</title>
+    <link rel="stylesheet" href="/css/app.css">
+</head>
+<body class="profile-page" id="profilePage">
+<header class="topbar">
+    <a class="brand-lockup brand-link" href="/user/profile" aria-label="Trang hồ sơ HuuThang">
+        <span class="brand-logo" aria-hidden="true">HT</span>
+        <span class="brand-name">HuuThang</span>
+    </a>
+    <div class="topbar-actions">
+        <span class="secure-badge"><span class="status-dot"></span> Đã xác thực</span>
+        <button id="logout" class="secondary-button" type="button">Đăng xuất</button>
+    </div>
+</header>
+
+<main class="profile-container">
+    <section class="welcome-row">
+        <div>
+            <span class="eyebrow">Không gian cá nhân</span>
+            <h1>Hồ sơ của bạn</h1>
+            <p>Thông tin được tải từ endpoint bảo vệ bằng Bearer Token.</p>
+        </div>
+        <div class="date-chip" id="currentDate"></div>
+    </section>
+
+    <div id="profileMessage" class="message" role="status" hidden></div>
+
+    <section class="profile-grid loading" id="profileContent" aria-live="polite">
+        <article class="profile-card">
+            <div class="profile-cover"></div>
+            <div class="profile-card-body">
+                <div class="avatar-wrap">
+                    <img id="images" class="avatar-image" src="" alt="Ảnh đại diện" hidden>
+                    <span id="avatarFallback" class="avatar-fallback" aria-hidden="true">HT</span>
+                    <span class="online-indicator" title="Đang hoạt động"></span>
+                </div>
+                <div class="profile-identity">
+                    <span class="profile-role">Thành viên</span>
+                    <h2 id="profileName">Đang tải...</h2>
+                    <p id="profileEmail">Vui lòng chờ trong giây lát</p>
+                </div>
+                <div class="profile-divider"></div>
+                <dl class="detail-list">
+                    <div>
+                        <dt>Trạng thái</dt>
+                        <dd><span class="success-dot"></span> Hoạt động</dd>
+                    </div>
+                    <div>
+                        <dt>Ngày tham gia</dt>
+                        <dd id="createdAt">-</dd>
+                    </div>
+                </dl>
+            </div>
+        </article>
+
+        <div class="info-column">
+            <article class="info-card">
+                <div class="card-heading">
+                    <div>
+                        <span class="eyebrow">Bảo mật</span>
+                        <h2>Phiên đăng nhập</h2>
+                    </div>
+                    <span class="token-icon" aria-hidden="true">•••</span>
+                </div>
+                <p>Yêu cầu API của bạn đang được xác thực bằng access token lưu trên trình duyệt.</p>
+                <div class="security-row">
+                    <div>
+                        <span class="security-label">Phương thức</span>
+                        <strong>Bearer JWT</strong>
+                    </div>
+                    <span class="pill pill-success">Hợp lệ</span>
+                </div>
+            </article>
+
+            <article class="info-card guide-card">
+                <div class="guide-icon" aria-hidden="true">i</div>
+                <div>
+                    <h2>Thông tin API</h2>
+                    <p>Hồ sơ được lấy từ <code>GET /users/me</code>. Khi đăng xuất, token sẽ bị xóa khỏi trình duyệt.</p>
+                </div>
+            </article>
+        </div>
+    </section>
+</main>
+
+<script src="/js/mainjs.js"></script>
+</body>
+</html>
+

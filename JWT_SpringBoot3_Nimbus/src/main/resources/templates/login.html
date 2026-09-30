@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Đăng nhập hệ thống bảo mật bằng JSON Web Token">
+    <title>Đăng nhập | HuuThang JWT</title>
+    <link rel="stylesheet" href="/css/app.css">
+</head>
+<body class="auth-page">
+<main class="auth-shell">
+    <section class="brand-panel" aria-label="Giới thiệu hệ thống">
+        <div class="brand-lockup">
+            <span class="brand-logo" aria-hidden="true">HT</span>
+            <span class="brand-name">HuuThang</span>
+        </div>
+
+        <div class="brand-copy">
+            <span class="eyebrow eyebrow-light">Spring Boot 3 · Security 6</span>
+            <h1>Bảo mật đơn giản.<br>Trải nghiệm rõ ràng.</h1>
+            <p>Đăng nhập an toàn bằng JSON Web Token và truy cập thông tin cá nhân của bạn.</p>
+        </div>
+
+        <ul class="feature-list" aria-label="Các tính năng bảo mật">
+            <li><span class="feature-check">✓</span> Xác thực stateless bằng Bearer Token</li>
+            <li><span class="feature-check">✓</span> Mật khẩu được mã hóa với BCrypt</li>
+            <li><span class="feature-check">✓</span> Phiên đăng nhập có thời hạn</li>
+        </ul>
+
+        <div class="brand-footer"><span class="status-dot"></span> JWT authentication service</div>
+    </section>
+
+    <section class="auth-card" aria-labelledby="loginTitle">
+        <div class="mobile-brand">
+            <span class="brand-logo" aria-hidden="true">HT</span>
+            <span class="brand-name">HuuThang</span>
+        </div>
+
+        <div class="auth-heading">
+            <span class="eyebrow">Tài khoản của bạn</span>
+            <h2 id="loginTitle">Chào mừng trở lại</h2>
+            <p>Nhập thông tin đăng nhập để tiếp tục.</p>
+        </div>
+
+        <form id="loginForm" class="auth-form" novalidate>
+            <div class="form-group">
+                <label for="email">Địa chỉ email</label>
+                <div class="input-shell">
+                    <span class="input-icon" aria-hidden="true">@</span>
+                    <input type="email" name="email" id="email" placeholder="tenban@example.com"
+                           autocomplete="email" maxlength="100" required>
+                </div>
+                <small class="field-error" id="emailError"></small>
+            </div>
+
+            <div class="form-group">
+                <div class="label-row">
+                    <label for="password">Mật khẩu</label>
+                    <span class="field-hint">Tối thiểu 6 ký tự</span>
+                </div>
+                <div class="input-shell">
+                    <span class="input-icon input-icon-lock" aria-hidden="true"></span>
+                    <input type="password" name="password" id="password" placeholder="Nhập mật khẩu"
+                           autocomplete="current-password" required>
+                    <button class="password-toggle" type="button" data-password-toggle="password"
+                            aria-label="Hiện mật khẩu" aria-pressed="false">Hiện</button>
+                </div>
+                <small class="field-error" id="passwordError"></small>
+            </div>
+
+            <div id="loginMessage" class="message" role="alert" hidden></div>
+
+            <button id="loginButton" class="primary-button" type="submit">
+                <span class="button-label">Đăng nhập</span>
+                <span class="button-spinner" aria-hidden="true"></span>
+                <span class="button-arrow" aria-hidden="true">→</span>
+            </button>
+        </form>
+
+        <p class="auth-switch">Chưa có tài khoản? <a href="/register">Đăng ký ngay</a></p>
+        <div class="auth-note">
+            <span class="shield-icon" aria-hidden="true">✓</span>
+            <p>Kết nối được bảo vệ bằng JWT. Token chỉ được dùng để xác thực các yêu cầu API.</p>
+        </div>
+    </section>
+</main>
+
+<script src="/js/mainjs.js"></script>
+</body>
+</html>
+
